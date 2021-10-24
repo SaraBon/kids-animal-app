@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { DndProvider } from "react-dnd";
+import { TouchBackend } from "react-dnd-touch-backend";
+import { BoardContextProvider } from "./board/useBoardContext";
+import { BoardCanvas } from "./components/BoardCanvas";
+import { Preview } from "react-dnd-preview";
+import { PreviewImage } from "./components/PreviewImage";
+import { IPreviewProps } from "./components/types";
+
+const dndOtions = {
+  enableMouseEvents: true,
+};
+
+const generatePreview = ({ itemType, item, style }: IPreviewProps) => {
+  return (
+    <div className="item-list__item" style={style}>
+      <PreviewImage type={itemType} />
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DndProvider backend={TouchBackend} options={dndOtions}>
+      <BoardContextProvider>
+        <BoardCanvas />
+        <Preview generator={generatePreview} />
+      </BoardContextProvider>
+    </DndProvider>
   );
 }
 

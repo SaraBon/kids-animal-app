@@ -1,0 +1,42 @@
+
+  @keyframes levelTransition {
+    0% {
+		opacity: 0;
+    }
+    100% {
+		opacity: 1;
+    }
+    }
+
+.background {
+	background-color: rgba(216, 191, 216, 0.707);
+}
+
+.playground {
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: levelTransition 0.5s both
+}
+
+
+.grid {
+	width: 90%;
+	height: 90%;
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	grid-template-rows: repeat(6, 16%);
+	place-items: center;
+  }
+  
+
+.level1{
+	background-image: linear-gradient(to bottom,  rgba(106, 133, 151, 0.6) 0%,rgba(55, 69, 68, 0.5) 100%),  url('./backgroundImages/background1.jpg');
+}
+.level2{
+	background-image: linear-gradient(to bottom, rgba(244,241,222,0.6) 0%,rgba(242,204,134,0.6) 100%),  url('./backgroundImages/background2.jpg');
+}
