@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { createContext, ReactNode, useContext } from "react";
 import { IBoardItem } from "../components/types";
 import { boardLevel1, levelBoards } from "./board";
@@ -20,7 +20,7 @@ const initialState: BoardState = {
 export const reducer = (state: BoardState, action: IReducerAction) => {
   switch (action.type) {
     case "startGame":
-      return { level: 1, board: state.board };
+      return { ...state, level: 1 };
     case "setItemCollected": {
       const newBoard = state.board;
       const element = newBoard.find((element) => element.id === action.id);
@@ -29,16 +29,16 @@ export const reducer = (state: BoardState, action: IReducerAction) => {
       const allItemsCollected = newBoard.every((item) => item.isCollected);
       const isLastLevel = state.level === levelBoards.length;
       return {
-        board: allItemsCollected
-          ? isLastLevel
-            ? newBoard
-            : levelBoards[state.level]
-          : newBoard,
         level: allItemsCollected
           ? isLastLevel
             ? state.level
             : state.level + 1
           : state.level,
+        board: allItemsCollected
+          ? isLastLevel
+            ? newBoard
+            : levelBoards[state.level]
+          : newBoard,
       };
     }
 
@@ -77,12 +77,15 @@ export const BoardContextProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: "startGame" });
   };
 
-  const isItemCollected = (id: string) => {
-    const element = state.board.find(
-      (element: IBoardItem) => element.id === id
-    );
-    return element!.isCollected;
-  };
+  const isItemCollected = useCallback(
+    (id: string) => {
+      const element = state.board.find(
+        (element: IBoardItem) => element.id === id
+      );
+      return element!.isCollected;
+    },
+    [state.board]
+  );
 
   return (
     <BoardContext.Provider

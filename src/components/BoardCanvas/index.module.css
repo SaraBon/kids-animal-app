@@ -23,6 +23,20 @@
   animation: levelTransition 0.5s both
 }
 
+.levelCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight: 400;
+  color: rgba(55, 69, 68, 0.5);
+
+}
+
 
 .grid {
 	width: 90%;

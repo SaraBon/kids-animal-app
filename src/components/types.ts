@@ -1,9 +1,11 @@
-import { CSSProperties, ReactElement } from "react";
+import { CSSProperties } from "react";
 
 export interface IBoardItem {
   id: string;
-  receiver: ReactElement;
-  dragItem: ReactElement;
+  gridPositionDrop: [number, number];
+  gridPositionDrag: [number, number];
+  imgsrcDrop: string;
+  imgsrcDrag: string;
   type: string;
   isCollected: boolean;
 }

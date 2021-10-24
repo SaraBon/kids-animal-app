@@ -60,7 +60,8 @@ margin-left: 35px;
 }
 
 .startButton {
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight: 600;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;

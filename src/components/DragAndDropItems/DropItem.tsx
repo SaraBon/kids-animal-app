@@ -10,9 +10,11 @@ export const DropItem: React.FC<IDropItem> = (props) => {
   const { gridPosition, id, type, imgsrc, imgsrcAnimate } = props;
   const [animate, setAnimate] = useState<boolean>(false);
   const gridPositionStyle = getGridPositionStyle(gridPosition);
+  const [removeElements, setRemoveElements] = useState<boolean>(false);
 
   useEffect(() => {
     setAnimate(false);
+    setRemoveElements(false);
   }, [id]);
 
   const { setItemCollected } = useBoardContext();
@@ -23,6 +25,7 @@ export const DropItem: React.FC<IDropItem> = (props) => {
       setAnimate(true);
       const audio = new Audio(`${type}.mp3`);
       audio.play();
+      setRemoveElements(true);
       setItemCollected(id, type);
     },
     collect: (monitor) => ({
@@ -32,7 +35,7 @@ export const DropItem: React.FC<IDropItem> = (props) => {
   });
   const droppable = isOver && canDrop;
 
-  return (
+  return removeElements ? null : (
     <img
       className={cn(
         style.dropItem,
