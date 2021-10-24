@@ -49,7 +49,6 @@ export const reducer = (state: BoardState, action: IReducerAction) => {
 
 interface BoardContextState {
   state: BoardState;
-
   setItemCollected: (id: string, type: string) => void;
   isItemCollected: (id: string) => boolean;
   startTheGame: () => void;
@@ -60,16 +59,12 @@ const BoardContext = createContext<BoardContextState>({
     board: boardLevel1,
     level: 0,
   },
-
   setItemCollected: () => {},
   isItemCollected: () => false,
   startTheGame: () => undefined,
 });
 
 export const BoardContextProvider = ({ children }: { children: ReactNode }) => {
-  // const [board, setBoard] = useState<IBoardItem[]>(boardLevel1);
-  // const [level, setLevel] = useState<number>(0);
-
   const [state, dispatch] = React.useReducer<
     React.Reducer<BoardState, IReducerAction>
   >(reducer, initialState);
