@@ -16,12 +16,13 @@ export const DropItem: React.FC<IDropItem> = (props) => {
   }, [id]);
 
   const { setItemCollected } = useBoardContext();
-  console.log("DropItem");
-  console.log({ gridPosition, id, type, imgsrc, imgsrcAnimate });
+
   const [{ isOver, canDrop }, dropRef] = useDrop({
     accept: type,
     drop: () => {
       setAnimate(true);
+      const audio = new Audio(`${type}.mp3`);
+      audio.play();
       setItemCollected(id, type);
     },
     collect: (monitor) => ({
@@ -30,8 +31,6 @@ export const DropItem: React.FC<IDropItem> = (props) => {
     }),
   });
   const droppable = isOver && canDrop;
-  console.log("animate");
-  console.log(animate);
 
   return (
     <img
