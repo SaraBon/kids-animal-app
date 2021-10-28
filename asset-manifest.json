@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/kids-animal-app/static/css/main.8c897a54.chunk.css",
+    "main.js": "/kids-animal-app/static/js/main.78f961b5.chunk.js",
+    "main.js.map": "/kids-animal-app/static/js/main.78f961b5.chunk.js.map",
+    "runtime-main.js": "/kids-animal-app/static/js/runtime-main.98c72677.js",
+    "runtime-main.js.map": "/kids-animal-app/static/js/runtime-main.98c72677.js.map",
+    "static/js/2.ed4d9e72.chunk.js": "/kids-animal-app/static/js/2.ed4d9e72.chunk.js",
+    "static/js/2.ed4d9e72.chunk.js.map": "/kids-animal-app/static/js/2.ed4d9e72.chunk.js.map",
+    "static/js/3.4b31d245.chunk.js": "/kids-animal-app/static/js/3.4b31d245.chunk.js",
+    "static/js/3.4b31d245.chunk.js.map": "/kids-animal-app/static/js/3.4b31d245.chunk.js.map",
+    "index.html": "/kids-animal-app/index.html",
+    "static/css/main.8c897a54.chunk.css.map": "/kids-animal-app/static/css/main.8c897a54.chunk.css.map",
+    "static/js/2.ed4d9e72.chunk.js.LICENSE.txt": "/kids-animal-app/static/js/2.ed4d9e72.chunk.js.LICENSE.txt",
+    "static/media/index.module.css": "/kids-animal-app/static/media/birds.666610a5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98c72677.js",
+    "static/js/2.ed4d9e72.chunk.js",
+    "static/css/main.8c897a54.chunk.css",
+    "static/js/main.78f961b5.chunk.js"
+  ]
+}
